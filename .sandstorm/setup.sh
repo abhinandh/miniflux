@@ -8,6 +8,12 @@ set -euo pipefail
 export DEBIAN_FRONTEND=noninteractive
 apt-get update
 apt-get install -y nginx php5-fpm php5-sqlite php5-cli php5-curl git php5-dev libxml2
+
+# Install capnproto
+apt-get install -y clang pkg-config
+export CXX=clang++
+cd /tmp && git clone https://github.com/sandstorm-io/capnproto.git && cd capnproto/c++ && autoreconf -i && ./configure && make clean && sudo make -j6 install
+
 service nginx stop
 service php5-fpm stop
 systemctl disable nginx

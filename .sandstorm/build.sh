@@ -11,3 +11,5 @@ if [ -f /opt/app/composer.json ] ; then
     fi
     php composer.phar install
 fi
+
+cd /opt/app/sandstorm; make; sudo cp bin/sandstorm-httpGet /usr/bin

@@ -14,6 +14,7 @@
 <section>
 <form method="post" action="?action=config" autocomplete="off" id="config-form">
 
+<!--
     <h3><?= t('Authentication') ?></h3>
     <div class="options">
         <?= Miniflux\Helper\form_hidden('csrf', $values) ?>
@@ -26,6 +27,7 @@
         <?= Miniflux\Helper\form_label(t('Confirmation'), 'confirmation') ?>
         <?= Miniflux\Helper\form_password('confirmation', $values, $errors) ?><br/>
     </div>
+-->
 
     <h3><?= t('Application') ?></h3>
     <div class="options">

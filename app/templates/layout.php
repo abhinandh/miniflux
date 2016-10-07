@@ -44,9 +44,11 @@
                     <li class="<?= isset($menu) && $menu === 'config' ? 'active hide-mobile' : 'hide-mobile' ?>">
                         <a href="?action=config"><?= t('preferences') ?></a>
                     </li>
+<!--
                     <li class="hide-mobile">
                         <a href="?action=logout"><?= t('logout') ?></a>
                     </li>
+-->
                     <li class="<?= isset($menu) && $menu === 'more' ? 'active hide-desktop' : 'hide-desktop' ?>">
                         <a href="?action=more">∨ <?= t('menu') ?></a>
                     </li>

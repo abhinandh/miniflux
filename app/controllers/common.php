@@ -27,6 +27,11 @@ Router\before(function ($action) {
         }
     }
 
+    /*
+     * User management is handled by Sandstorm, bypassing it.
+     */
+
+    /*
     // These actions are considered to be safe even for unauthenticated users
     $safe_actions = array('login', 'bookmark-feed', 'select-db', 'logout', 'notfound');
 
@@ -38,6 +43,7 @@ Router\before(function ($action) {
     } elseif (Model\RememberMe\has_cookie()) {
         Model\RememberMe\refresh();
     }
+    */
 
     // Load translations
     $language = Model\Config\get('language') ?: 'en_US';
