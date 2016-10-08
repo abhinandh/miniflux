@@ -30,7 +30,6 @@ class SandstormGet extends Client
         $output = 
             shell_exec($this->spath . ' "' . $this->url . '" ' . $this->getSandstormSessionId());
 
-        file_put_contents( "/tmp/urls", $this->url . "\n", FILE_APPEND );
         // TODO: Return the right error code based on STDERR.
         if ($output == NULL) {
             throw new InvalidUrlException('Unable to fetch the URL', 0);

@@ -171,8 +171,9 @@ abstract class Client
      */
     public static function getInstance()
     {
-        return new SandstormGet();
-        if (function_exists('curl_init')) {
+        if (class_exists('\\PicoFeed\\Client\\SandstormGet')) {
+            return new SandstormGet();
+        } else if (function_exists('curl_init')) {
             return new Curl();
         } elseif (ini_get('allow_url_fopen')) {
             return new Stream();
