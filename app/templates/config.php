@@ -14,9 +14,8 @@
 <section>
 <form method="post" action="?action=config" autocomplete="off" id="config-form">
 
-<!--
-    <h3><?= t('Authentication') ?></h3>
-    <div class="options">
+    <h3 style="display:none"><?= t('Authentication') ?></h3>
+    <div class="options" style="display:none">
         <?= Miniflux\Helper\form_hidden('csrf', $values) ?>
         <?= Miniflux\Helper\form_label(t('Username'), 'username') ?>
         <?= Miniflux\Helper\form_text('username', $values, $errors, array('required')) ?><br/>
@@ -27,7 +26,6 @@
         <?= Miniflux\Helper\form_label(t('Confirmation'), 'confirmation') ?>
         <?= Miniflux\Helper\form_password('confirmation', $values, $errors) ?><br/>
     </div>
--->
 
     <h3><?= t('Application') ?></h3>
     <div class="options">
@@ -93,8 +91,10 @@
 </div>
 <section class="panel panel-danger">
 <ul>
+<!--
     <li><a href="?action=generate-tokens&amp;csrf=<?= $values['csrf'] ?>"><?= t('Generate new tokens') ?></a> (<?= t('Miniflux API') ?>, <?= t('Fever API') ?>, <?= t('Bookmarklet') ?>, <?= t('Bookmark RSS Feed') ?>)</li>
 <?php if (ENABLE_AUTO_UPDATE): ?>
+-->
     <li><a href="?action=confirm-auto-update"><?= t('Update Miniflux') ?></a> (<?= t('Don\'t forget to backup your database') ?>)</li>
 <?php endif ?>
 </ul>

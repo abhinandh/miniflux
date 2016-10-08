@@ -7,9 +7,12 @@ use Miniflux\Model;
 
 $server = new Server();
 
+// Sandstorm should take care of api auth.
+/*
 $server->authentication(array(
     Model\Config\get('username') => Model\Config\get('api_token')
 ));
+*/
 
 $procedureHandler = $server->getProcedureHandler();
 

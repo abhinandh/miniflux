@@ -19,7 +19,7 @@ const pkgdef :Spk.PackageDefinition = (
 
     appTitle = (defaultText = "Miniflux"),
 
-    appVersion = 0,  # Increment this for every release.
+    appVersion = 1,  # Increment this for every release.
 
     appMarketingVersion = (defaultText = "1.1.10"),
     # Human-readable representation of appVersion. Should match the way you
@@ -54,18 +54,18 @@ const pkgdef :Spk.PackageDefinition = (
         #marketBig = (svg = embed "path/to/market-big-300x300.svg"),
       ),
 
-      website = "http://example.com",
+      website = "https://miniflux.net/",
       # This should be the app's main website url.
 
-      codeUrl = "http://example.com",
+      codeUrl = "https://github.com/abhinandh/miniflux",
       # URL of the app's source code repository, e.g. a GitHub URL.
       # Required if you specify a license requiring redistributing code, but optional otherwise.
 
-      license = (none = void),
+      license = (openSource = agpl3),
       # The license this package is distributed under.  See
       # https://docs.sandstorm.io/en/latest/developing/publishing-apps/#license
 
-      categories = [],
+      categories = [media],
       # A list of categories/genres to which this app belongs, sorted with best fit first.
       # See the list of categories at
       # https://docs.sandstorm.io/en/latest/developing/publishing-apps/#categories
@@ -73,7 +73,7 @@ const pkgdef :Spk.PackageDefinition = (
       author = (
         # Fields relating to the author of this app.
 
-        contactEmail = "youremail@example.com",
+        contactEmail = "abhinandh@gmail.com",
         # Email address to contact for any issues with this app. This includes end-user support
         # requests as well as app store administrator requests, so it is very important that this be a
         # valid address with someone paying attention to it.
@@ -92,7 +92,7 @@ const pkgdef :Spk.PackageDefinition = (
         # Further details including how to set up GPG and how to use keybase.io can be found
         # at https://docs.sandstorm.io/en/latest/developing/publishing-apps/#verify-your-identity
 
-        upstreamAuthor = "Example App Team",
+        upstreamAuthor = "Frédéric Guillot",
         # Name of the original primary author of this app, if it is different from the person who
         # produced the Sandstorm package. Setting this implies that the author connected to the PGP
         # signature only "packaged" the app for Sandstorm, rather than developing the app.
@@ -109,12 +109,12 @@ const pkgdef :Spk.PackageDefinition = (
       #
       # Where `<key-id>` is a PGP key ID or email address associated with the key.
 
-      #description = (defaultText = embed "path/to/description.md"),
+      description = (defaultText = embed "description.md"),
       # The app's description in Github-flavored Markdown format, to be displayed e.g.
       # in an app store. Note that the Markdown is not permitted to contain HTML nor image tags (but
       # you can include a list of screenshots separately).
 
-      shortDescription = (defaultText = "one-to-three words"),
+      shortDescription = (defaultText = "Minimalist web RSS reader"),
       # A very short (one-to-three words) description of what the app does. For example,
       # "Document editor", or "Notetaking", or "Email client". This will be displayed under the app
       # title in the grid view in the app market.
@@ -163,7 +163,7 @@ const pkgdef :Spk.PackageDefinition = (
   # not have been detected as a dependency during `spk dev`. If you list
   # a directory here, its entire contents will be included recursively.
 
-  #bridgeConfig = (
+  bridgeConfig = (
   #  # Used for integrating permissions and roles into the Sandstorm shell
   #  # and for sandstorm-http-bridge to pass to your app.
   #  # Uncomment this block and adjust the permissions and roles to make
@@ -225,12 +225,12 @@ const pkgdef :Spk.PackageDefinition = (
   #      ),
   #    ],
   #  ),
-  #  #apiPath = "/api",
+     apiPath = "/",
   #  # Apps can export an API to the world.  The API is to be used primarily by Javascript
   #  # code and native apps, so it can't serve out regular HTML to browsers.  If a request
   #  # comes in to your app's API, sandstorm-http-bridge will prefix the request's path with
   #  # this string, if specified.
-  #),
+  ),
 );
 
 const myCommand :Spk.Manifest.Command = (

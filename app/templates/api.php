@@ -12,6 +12,56 @@
     </nav>
 </div>
 <section>
+
+<script>
+function requestIframeURL() {
+    var template = "$API_TOKEN";
+    window.parent.postMessage({renderTemplate: {
+        rpcId: "1",
+        template: template,
+        clipboardButton: "right",
+    }}, "*");
+    var template = "http://$API_HOST/jsonrpc.php";
+    window.parent.postMessage({renderTemplate: {
+        rpcId: "2",
+        template: template,
+        clipboardButton: "right",
+    }}, "*");
+}
+
+document.addEventListener("DOMContentLoaded", requestIframeURL);
+
+var copyIframeURLToElement = function(event) {
+    if (event.data.rpcId === "1") {
+        if (event.data.error) {
+            console.log("ERROR: " + event.data.error);
+        } else {
+            el = document.getElementById("miniflux_api_token");
+            el.setAttribute("src", event.data.uri);
+        }
+    } else if (event.data.rpcId === "2") {
+        if (event.data.error) {
+            console.log("ERROR: " + event.data.error);
+        } else {
+            var el = document.getElementById("miniflux_api_base");
+            el.setAttribute("src", event.data.uri);
+        }
+    }
+};
+window.addEventListener("message", copyIframeURLToElement);
+</script>
+
+<style>
+.if {
+    width: 80%;
+    height: 20px;
+    margin: 0;
+    margin-left: 10px;
+    border: 0;
+}
+</style>
+
+<!--
     <div class="panel panel-default">
         <h3 id="fever"><?= t('Fever API') ?></h3>
         <ul>
@@ -20,12 +70,13 @@
             <li><?= t('API token:') ?> <strong><?= Miniflux\Helper\escape($config['fever_token']) ?></strong></li>
         </ul>
     </div>
+-->
     <div class="panel panel-default">
         <h3 id="api"><?= t('Miniflux API') ?></h3>
         <ul>
-            <li><?= t('API endpoint:') ?> <strong><?= Miniflux\Helper\get_current_base_url(), 'jsonrpc.php' ?></strong></li>
-            <li><?= t('API username:') ?> <strong><?= Miniflux\Helper\escape($config['username']) ?></strong></li>
-            <li><?= t('API token:') ?> <strong><?= Miniflux\Helper\escape($config['api_token']) ?></strong></li>
+            <li><?= t('API endpoint:') ?> <strong><iframe class="if" id="miniflux_api_base"></iframe></strong></li>
+            <li><?= t('API token:') ?> <strong><iframe class="if" id="miniflux_api_token"></iframe></strong></li>
         </ul>
     </div>
+
 </section>

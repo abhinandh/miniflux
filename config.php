@@ -19,7 +19,7 @@ define('FAVICON_URL_PATH', 'data/favicons');
 define('DB_FILENAME', 'db.sqlite');
 
 // ENABLE_MULTIPLE_DB => default value is true (multiple users support)
-define('ENABLE_MULTIPLE_DB', true);
+define('ENABLE_MULTIPLE_DB', false);
 
 // DEBUG_FILENAME => default is data/debug.log
 define('DEBUG_FILENAME', DATA_DIRECTORY.'/debug.log');
@@ -43,7 +43,7 @@ define('PROXY_USERNAME', '');
 define('PROXY_PASSWORD', '');
 
 // ENABLE_AUTO_UPDATE => default is true (enable Miniflux update from the user interface)
-define('ENABLE_AUTO_UPDATE', true);
+define('ENABLE_AUTO_UPDATE', false);
 
 // SUBSCRIPTION_CONCURRENT_REQUESTS => number of concurrent feeds to refresh at once
 // Reduce this number on systems with limited processing power

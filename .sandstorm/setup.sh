@@ -34,3 +34,14 @@ sed --in-place='' \
 sed --in-place='' \
         --expression='s/^;clear_env = no/clear_env=no/' \
         /etc/php5/fpm/pool.d/www.conf
+
+# Download a bunch of miniflux themes
+THEMES_DIR=/opt/app/themes
+mkdir -p $THEMES_DIR
+rm -rf $THEMES_DIR/*
+cd $THEMES_DIR
+themes=( copper midnight green still nostyle cards bootstrap-light bootswatch-cyborg )
+for i in "${themes[@]}"
+do
+    git clone https://github.com/miniflux/theme-$i.git
+done

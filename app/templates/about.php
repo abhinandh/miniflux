@@ -12,6 +12,7 @@
     </nav>
 </div>
 <section>
+<!--
     <div class="panel panel-default">
         <h3><?= t('Bookmarks') ?></h3>
         <ul>
@@ -25,6 +26,7 @@
         <a class="bookmarklet" href="javascript:location.href='<?= Miniflux\Helper\get_current_base_url() ?>?action=subscribe&amp;token=<?= urlencode($config['bookmarklet_token']) ?>&amp;url='+encodeURIComponent(location.href)"><?= t('Subscribe with Miniflux') ?></a> (<?= t('Drag and drop this link to your bookmarks') ?>)
         <input type="text" class="auto-select" readonly="readonly" value="javascript:location.href='<?= Miniflux\Helper\get_current_base_url() ?>?action=subscribe&amp;token=<?= urlencode($config['bookmarklet_token']) ?>&amp;url='+encodeURIComponent(location.href)"/>
     </div>
+-->
     <div class="panel panel-default">
         <h3><?= t('About') ?></h3>
         <ul>

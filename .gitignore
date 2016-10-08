@@ -22,3 +22,6 @@ nbproject
 !app/validators/*
 rules/*.php
 data/favicons/*.*
+sandstorm/bin/*
+sandstorm/tmp/*
+themes/*
